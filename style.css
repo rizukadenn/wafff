@@ -1466,3 +1466,59 @@ button {
 
     border-radius: 10px;
 }
+/* =========================
+   SURPRISE BUTTON
+========================= */
+
+.surprise-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 25px;
+    padding: 14px 28px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #eaf8ff
+    );
+
+    color: #4d8aaa;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(70, 150, 190, 0.18),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+.surprise-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #dff4ff
+    );
+
+    box-shadow:
+        0 14px 30px rgba(70, 150, 190, 0.25);
+}
+
+.surprise-btn:active {
+    transform: translateY(-1px) scale(0.98);
+}
