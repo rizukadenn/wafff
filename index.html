@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday! 💙</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background decorations -->
+    <div class="sky">
+        <span class="star star1">✦</span>
+        <span class="star star2">✧</span>
+        <span class="star star3">★</span>
+        <span class="heart heart1">♡</span>
+        <span class="heart heart2">♥</span>
+        <span class="heart heart3">♡</span>
+    </div>
+
+    <!-- Clouds -->
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+    <div class="cloud cloud3">☁️</div>
+
+    <main>
+
+        <!-- Opening -->
+        <section class="hero">
+
+            <div class="small-text">
+                a little birthday surprise for you 🩵
+            </div>
+
+           <div class="birthday-label">
+    ✦ A SPECIAL DAY ✦
+</div>
+
+<h1>
+    Happy Birthday,
+    <span class="name">Someone Special</span>! 🎂
+</h1>
+
+<p class="subtitle">
+    Today is your day to smile,
+    <br>
+    make wishes, and create beautiful memories. 🩵
+</p>
+
+<div class="hero-hearts">
+    ♡ ✦ ♡ ✦ ♡
+</div>
+
+            <button class="surprise-btn" onclick="openSurprise()">
+                💌 Open Your Surprise
+            </button>
+
+        </section>
+
+
+        <!-- Birthday card -->
+        <section class="birthday-card" id="birthdayCard">
+
+            <div class="card-decoration">🦋</div>
+
+            <h2>
+                For Someone Special 💙
+            </h2>
+
+            <div class="cake">
+                <div class="flame">🔥</div>
+
+                <div class="candle"></div>
+
+                <div class="cake-top"></div>
+
+                <div class="cake-body">
+                    <span>♡</span>
+                    <span>♡</span>
+                    <span>♡</span>
+                </div>
+
+                <div class="cake-plate"></div>
+            </div>
+
+            <p class="message">
+                Semoga hari ini dipenuhi dengan banyak senyum,
+                tawa, kebahagiaan, dan hal-hal kecil yang membuat
+                hati terasa hangat. 🫧
+            </p>
+
+            <p class="message">
+                Semoga semua impianmu perlahan menjadi kenyataan.
+                Jangan lupa untuk selalu percaya bahwa kamu
+                pantas mendapatkan hal-hal indah. 💙
+            </p>
+
+            <div class="signature">
+                With lots of love ♡
+            </div>
+
+        </section>
+<!-- =========================
+     INTERACTIVE LETTER
+========================= -->
+
+<section class="letter-section">
+
+    <div class="letter-intro">
+        <span>♡</span>
+        <p>There is a little letter for you...</p>
+    </div>
+
+    <div class="envelope-wrapper" id="envelopeWrapper">
+
+      <div class="envelope" id="envelope" onclick="toggleEnvelope()">
+
+            <div class="envelope-back"></div>
+
+            <div class="letter-paper">
+
+                <div class="letter-content">
+
+                    <div class="letter-icon">
+                        💙
+                    </div>
+
+                    <h2>
+                        A Little Letter For You
+                    </h2>
+
+                    <p>
+                        Hai kamu! 🫧
+                    </p>
+
+                    <p>
+                        Hari ini bukan sekadar tanggal biasa.
+                        Hari ini adalah hari ketika seseorang
+                        yang begitu berarti hadir ke dunia.
+                    </p>
+
+                    <p>
+                        Terima kasih sudah menjadi dirimu sendiri,
+                        dengan segala cerita, tawa, mimpi,
+                        dan hal-hal kecil yang membuatmu unik.
+                    </p>
+
+                    <p>
+                        Semoga langkahmu ke depan selalu dipenuhi
+                        kebahagiaan, orang-orang baik, dan
+                        alasan-alasan baru untuk tersenyum. ✨
+                    </p>
+
+                    <p>
+                        Jangan pernah lupa...
+                        kamu jauh lebih berharga daripada
+                        yang terkadang kamu sadari. 💙
+                    </p>
+
+                    <div class="letter-signature">
+                        With love,<br>
+                        <span>♡ Someone who cares ♡</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="envelope-front"></div>
+
+            <div class="envelope-flap"></div>
+
+            <div class="envelope-seal">
+                💙
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="letter-hint" id="letterHint">
+        ✦ Tap the envelope to open ✦
+    </p>
+
+</section>
+
+        <!-- Gift -->
+        <section class="gift-section">
+
+            <h2>One More Thing... 🎁</h2>
+
+            <p>
+                There might be a little surprise waiting for you.
+            </p>
+
+            <button class="gift-btn" onclick="openGift()">
+                🎁 Tap the Gift
+            </button>
+
+        </section>
+
+
+        <!-- Final message -->
+        <section class="final-message" id="finalMessage">
+
+            <div class="sparkle">✨</div>
+
+            <h2>
+                You deserve all the happiness in the world! 🩵
+            </h2>
+
+            <p>
+                Happy Birthday once again!
+                <br>
+                Keep smiling, keep dreaming,
+                and keep being you. 🌷
+            </p>
+
+            <div class="final-hearts">
+                ♡ 💙 ♡ 🩵 ♡
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+
+        <div class="popup-box">
+
+            <button class="close-btn" onclick="closePopup()">
+                ×
+            </button>
+
+            <div class="popup-icon">
+                🎁
+            </div>
+
+            <h2>
+                Surprise! 💙
+            </h2>
+
+            <p>
+                Your biggest gift is simply being you. 🫧
+            </p>
+
+            <p>
+                Semoga tahun ini menjadi salah satu
+                tahun terbaik dalam hidupmu. ✨
+            </p>
+
+            <button onclick="closePopup()" class="okay-btn">
+                Awww 🥹💙
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- Confetti container -->
+    <div id="confetti-container"></div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
