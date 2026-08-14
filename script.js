@@ -325,3 +325,19 @@ setInterval(
     },
     4000
 );
+function openSurprise() {
+    const card = document.getElementById("birthdayCard");
+
+    if (card) {
+        card.classList.add("show");
+
+        setTimeout(() => {
+            card.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }, 100);
+    }
+
+    createConfetti();
+}
