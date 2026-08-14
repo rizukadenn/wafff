@@ -1,12 +1,6 @@
-/* =====================================================
-   HAPPY BIRTHDAY WEBSITE
-   PASTEL BLUE EDITION
-===================================================== */
-
-
-/* =====================================================
+/* =========================================
    RESET
-===================================================== */
+========================================= */
 
 * {
     margin: 0;
@@ -14,11 +8,9 @@
     box-sizing: border-box;
 }
 
-
 html {
     scroll-behavior: smooth;
 }
-
 
 body {
     min-height: 100vh;
@@ -29,27 +21,27 @@ body {
         Arial,
         sans-serif;
 
-    color: #5b91a9;
-
-    overflow-x: hidden;
+    color: #4f7f9c;
 
     background:
-        linear-gradient(
-            135deg,
-            #dff6ff 0%,
-            #c7ecfa 45%,
-            #b6e2f4 100%
+        radial-gradient(
+            circle at 50% 20%,
+            #eaf9ff 0%,
+            #cceeff 35%,
+            #b7e4f8 70%,
+            #a9dbf1 100%
         );
+
+    overflow-x: hidden;
 }
 
 
-/* =====================================================
+/* =========================================
    BACKGROUND
-===================================================== */
+========================================= */
 
 .background {
     position: fixed;
-
     inset: 0;
 
     overflow: hidden;
@@ -60,83 +52,84 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================
    STARS
-===================================================== */
+========================================= */
 
 .stars span {
     position: absolute;
 
-    color: rgba(255,255,255,.9);
+    color: rgba(255, 255, 255, 0.85);
 
-    font-size: 22px;
+    font-size: 20px;
 
     animation:
-        twinkle 4s ease-in-out infinite;
+        twinkle 3s ease-in-out infinite;
 }
-
 
 .stars span:nth-child(1) {
     top: 18%;
     left: 12%;
 }
 
-
 .stars span:nth-child(2) {
-    top: 28%;
-    right: 23%;
+    top: 35%;
+    left: 25%;
 
     animation-delay: 1s;
 }
 
-
 .stars span:nth-child(3) {
-    top: 65%;
-    left: 8%;
+    top: 20%;
+    right: 22%;
+
+    animation-delay: 1.7s;
+}
+
+.stars span:nth-child(4) {
+    top: 58%;
+    right: 12%;
+
+    animation-delay: 0.8s;
+}
+
+.stars span:nth-child(5) {
+    bottom: 24%;
+    left: 18%;
 
     animation-delay: 2s;
 }
 
+.stars span:nth-child(6) {
+    bottom: 15%;
+    right: 25%;
 
-.stars span:nth-child(4) {
-    bottom: 20%;
-    right: 12%;
-
-    animation-delay: .5s;
+    animation-delay: 1.2s;
 }
-
-
-.stars span:nth-child(5) {
-    bottom: 35%;
-    left: 28%;
-
-    animation-delay: 1.5s;
-}
-
 
 @keyframes twinkle {
 
     0%,
     100% {
-        opacity: .3;
-        transform: scale(.8);
+        opacity: 0.3;
+        transform: scale(0.8);
     }
 
     50% {
         opacity: 1;
-        transform: scale(1.2);
+        transform: scale(1.25);
     }
 }
 
 
-/* =====================================================
+/* =========================================
    FLOATING HEARTS
-===================================================== */
+========================================= */
 
 .floating-hearts span {
     position: absolute;
 
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, 0.55);
 
     font-size: 22px;
 
@@ -144,44 +137,45 @@ body {
         floatHeart 7s ease-in-out infinite;
 }
 
-
 .floating-hearts span:nth-child(1) {
-    top: 35%;
-    left: 10%;
+    left: 8%;
+    top: 40%;
 }
-
 
 .floating-hearts span:nth-child(2) {
-    top: 55%;
-    right: 18%;
-
-    animation-delay: 2s;
-}
-
-
-.floating-hearts span:nth-child(3) {
-    bottom: 25%;
     left: 25%;
+    bottom: 18%;
 
     animation-delay: 1s;
 }
 
+.floating-hearts span:nth-child(3) {
+    right: 20%;
+    top: 26%;
+
+    animation-delay: 2s;
+}
 
 .floating-hearts span:nth-child(4) {
-    top: 22%;
-    right: 35%;
+    right: 8%;
+    bottom: 28%;
 
     animation-delay: 3s;
 }
 
-
 .floating-hearts span:nth-child(5) {
-    bottom: 35%;
-    right: 8%;
+    left: 48%;
+    top: 16%;
+
+    animation-delay: 1.5s;
+}
+
+.floating-hearts span:nth-child(6) {
+    right: 32%;
+    bottom: 14%;
 
     animation-delay: 4s;
 }
-
 
 @keyframes floatHeart {
 
@@ -189,64 +183,70 @@ body {
     100% {
         transform:
             translateY(0)
-            rotate(-8deg);
-
-        opacity: .35;
+            rotate(-5deg);
     }
 
     50% {
         transform:
             translateY(-22px)
             rotate(8deg);
-
-        opacity: .8;
     }
 }
 
 
-/* =====================================================
+/* =========================================
    CLOUDS
-===================================================== */
+========================================= */
 
 .cloud {
     position: absolute;
 
-    font-size: 55px;
+    font-size: 45px;
 
-    opacity: .7;
+    opacity: 0.5;
 
     filter:
+        blur(0.3px)
         drop-shadow(
-            0 8px 10px
-            rgba(100,150,180,.12)
+            0 8px 12px
+            rgba(100, 150, 200, 0.15)
         );
 
     animation:
-        cloudFloat 9s ease-in-out infinite;
+        cloudFloat 8s ease-in-out infinite;
 }
 
-
-.cloud-one {
-    top: 18%;
-    right: 10%;
+.cloud-1 {
+    left: 4%;
+    top: 48%;
 }
 
+.cloud-2 {
+    right: 8%;
+    top: 20%;
 
-.cloud-two {
-    top: 55%;
-    left: 7%;
+    font-size: 52px;
 
     animation-delay: 2s;
 }
 
-
-.cloud-three {
+.cloud-3 {
+    left: 22%;
     bottom: 15%;
-    right: 20%;
+
+    font-size: 38px;
 
     animation-delay: 4s;
 }
 
+.cloud-4 {
+    right: 20%;
+    bottom: 18%;
+
+    font-size: 42px;
+
+    animation-delay: 1s;
+}
 
 @keyframes cloudFloat {
 
@@ -261,9 +261,9 @@ body {
 }
 
 
-/* =====================================================
+/* =========================================
    MAIN
-===================================================== */
+========================================= */
 
 main {
     position: relative;
@@ -274,9 +274,9 @@ main {
 }
 
 
-/* =====================================================
+/* =========================================
    HERO
-===================================================== */
+========================================= */
 
 .hero {
     min-height: 100vh;
@@ -285,1064 +285,927 @@ main {
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 
-    padding: 80px 20px;
+    padding:
+        70px
+        20px;
 }
 
-
-.hero-small {
-    margin-bottom: 20px;
-
-    color: #76aabd;
-
-    font-size: 15px;
-
-    letter-spacing: 1px;
-}
-
-
-.birthday-label {
+.tiny-label {
     margin-bottom: 18px;
 
-    color: #71a4ba;
-
-    font-size: 13px;
+    font-size: 12px;
 
     font-weight: bold;
 
     letter-spacing: 3px;
+
+    color: #72a6c1;
 }
 
+.hero-heart {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.6);
+
+    box-shadow:
+        0 12px 30px
+        rgba(80, 140, 180, 0.15);
+
+    font-size: 34px;
+
+    margin-bottom: 24px;
+
+    animation:
+        heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
 
 .hero h1 {
-    max-width: 800px;
-
-    color: #528ba5;
+    max-width: 750px;
 
     font-size:
-        clamp(
-            38px,
-            7vw,
-            72px
-        );
+        clamp(38px, 6vw, 72px);
 
     line-height: 1.1;
 
-    font-weight: 800;
+    color: #477d9b;
 
     text-shadow:
-        0 4px 15px
-        rgba(255,255,255,.7);
+        0 4px 12px
+        rgba(255, 255, 255, 0.5);
 }
-
 
 .hero h1 span {
-    display: inline-block;
+    display: block;
 
-    color: #397fa2;
+    color: #2876b3;
+
+    margin-top: 8px;
 }
 
-
-.hero-subtitle {
+.hero-text {
     margin-top: 25px;
 
-    color: #6b9bad;
+    max-width: 600px;
 
     font-size: 17px;
 
-    line-height: 1.7;
-}
+    line-height: 1.8;
 
+    color: #6696b1;
+}
 
 .hero-decoration {
-    margin: 25px 0;
+    margin-top: 20px;
 
-    color: #75abc1;
+    color: #75b4d6;
 
-    font-size: 22px;
+    letter-spacing: 7px;
 
-    letter-spacing: 10px;
+    font-size: 17px;
 }
 
 
-/* =====================================================
-   BUTTON
-===================================================== */
+/* =========================================
+   BUTTONS
+========================================= */
 
 button {
-    border: none;
-
     font-family: inherit;
+
+    border: none;
 
     cursor: pointer;
 }
 
-
-.surprise-button,
-.gift-button {
+.surprise-btn,
+.gift-btn {
+    margin-top: 28px;
 
     padding:
-        15px 28px;
+        15px
+        28px;
 
-    border-radius: 50px;
+    border-radius: 999px;
 
     color: white;
 
     background:
         linear-gradient(
             135deg,
-            #69b4d4,
-            #438fb5
+            #66b6e5,
+            #428bd0
         );
+
+    box-shadow:
+        0 12px 25px
+        rgba(65, 140, 195, 0.25);
 
     font-size: 15px;
 
     font-weight: bold;
 
-    box-shadow:
-        0 10px 25px
-        rgba(65,145,180,.25);
-
     transition:
-        transform .25s ease,
-        box-shadow .25s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-
-.surprise-button:hover,
-.gift-button:hover {
-
+.surprise-btn:hover,
+.gift-btn:hover {
     transform:
-        translateY(-4px);
+        translateY(-4px)
+        scale(1.03);
 
     box-shadow:
-        0 15px 30px
-        rgba(65,145,180,.32);
+        0 18px 30px
+        rgba(65, 140, 195, 0.3);
+}
+
+.surprise-btn:active,
+.gift-btn:active {
+    transform: scale(0.97);
 }
 
 
-.surprise-button:active,
-.gift-button:active {
-
-    transform:
-        translateY(0);
-}
-
-
-/* =====================================================
+/* =========================================
    BIRTHDAY CARD
-===================================================== */
+========================================= */
 
 .birthday-card {
-
-    width:
-        min(
-            90%,
-            600px
-        );
+    width: min(680px, calc(100% - 40px));
 
     margin:
-        0 auto 150px;
+        40px auto
+        120px;
 
     padding:
-        45px 40px;
+        45px
+        35px;
 
     text-align: center;
 
-    border-radius: 30px;
-
     background:
-        rgba(
-            255,
-            255,
-            255,
-            .75
-        );
+        rgba(255, 255, 255, 0.78);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.9);
+
+    border-radius: 35px;
 
     box-shadow:
-        0 25px 60px
-        rgba(60,130,160,.15);
-
-    backdrop-filter:
-        blur(12px);
-
-    opacity: 0;
-
-    transform:
-        translateY(50px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-
-.birthday-card.show {
-
-    opacity: 1;
-
-    transform:
-        translateY(0);
-}
-
-
-.card-top-icon {
-    font-size: 35px;
-
-    margin-bottom: 10px;
-}
-
-
-.birthday-card h2 {
-    color: #548ca5;
-
-    font-size: 28px;
-
-    margin-bottom: 25px;
-}
-
-
-.birthday-card p {
-    margin-top: 18px;
-
-    color: #668fa2;
-
-    line-height: 1.7;
-}
-
-
-/* =====================================================
-   CAKE
-===================================================== */
-
-.cake {
-    position: relative;
-
-    width: 180px;
-
-    height: 150px;
-
-    margin:
-        20px auto;
-}
-
-
-.flame {
-    position: absolute;
-
-    top: 0;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    font-size: 25px;
-
-    animation:
-        flame 1s ease-in-out infinite;
-}
-
-
-@keyframes flame {
-
-    0%,
-    100% {
-        transform:
-            translateX(-50%)
-            scale(1);
-    }
-
-    50% {
-        transform:
-            translateX(-50%)
-            scale(1.15);
-    }
-}
-
-
-.candle {
-    position: absolute;
-
-    top: 25px;
-
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    width: 14px;
-
-    height: 35px;
-
-    border-radius: 5px;
-
-    background: #9bd8ed;
-}
-
-
-.cake-top {
-    position: absolute;
-
-    bottom: 70px;
-
-    left: 20px;
-
-    width: 140px;
-
-    height: 30px;
-
-    border-radius: 50%;
-
-    background: #c8edf8;
-}
-
-
-.cake-body {
-    position: absolute;
-
-    bottom: 30px;
-
-    left: 20px;
-
-    width: 140px;
-
-    height: 65px;
-
-    border-radius:
-        0 0 18px 18px;
-
-    background:
-        linear-gradient(
-            #a8dcec,
-            #80c6df
-        );
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-evenly;
-
-    color: white;
-
-    font-size: 22px;
-}
-
-
-.cake-plate {
-    position: absolute;
-
-    bottom: 18px;
-
-    left: 5px;
-
-    width: 170px;
-
-    height: 15px;
-
-    border-radius: 50%;
-
-    background: #e7f8fd;
-}
-
-
-/* =====================================================
-   LETTER SECTION
-===================================================== */
-
-.letter-section {
-
-    min-height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding:
-        80px 20px 150px;
-
-    text-align: center;
-}
-
-
-.letter-intro {
-    margin-bottom: 35px;
-}
-
-
-.letter-intro span {
-    display: block;
-
-    margin-bottom: 10px;
-
-    color: #6eabc2;
-
-    font-size: 25px;
-}
-
-
-.letter-intro p {
-    color: #6599ad;
-
-    font-size: 17px;
-
-    letter-spacing: .5px;
-}
-
-
-/* =====================================================
-   ENVELOPE WRAPPER
-===================================================== */
-
-.envelope-wrapper {
-
-    position: relative;
-
-    width: 350px;
-
-    height: 260px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-end;
-
-    /*
-       Sangat penting:
-       surat yang keluar boleh terlihat.
-    */
-
-    overflow: visible;
-
-    z-index: 20;
-}
-
-
-/* =====================================================
-   ENVELOPE
-===================================================== */
-
-.envelope {
-
-    position: relative;
-
-    width: 330px;
-
-    height: 220px;
-
-    cursor: pointer;
-
-    /*
-       JANGAN overflow hidden di sini.
-       Surat harus bisa keluar saat dibuka.
-    */
-
-    overflow: visible;
-
-    transform-style: preserve-3d;
-
-    transition:
-        transform .3s ease;
-
-    z-index: 20;
-}
-
-
-.envelope:hover {
-
-    transform:
-        translateY(-5px);
-}
-
-
-/* =====================================================
-   ENVELOPE BACK
-===================================================== */
-
-.envelope-back {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #b9e3f0,
-            #9fd4e6
-        );
-
-    box-shadow:
-        0 25px 50px
-        rgba(60,130,160,.2);
-
-    z-index: 1;
-}
-
-
-/* =====================================================
-   LETTER PAPER
-===================================================== */
-
-.letter-paper {
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 10px;
-
-    width: 305px;
-
-    height: 410px;
-
-    padding:
-        25px 22px;
-
-    background: white;
-
-    border-radius: 9px;
-
-    box-shadow:
-        0 15px 40px
-        rgba(60,120,150,.2);
-
-    overflow: hidden;
-
-    /*
-       CLOSED:
-       surat tetap di dalam amplop.
-    */
-
-    transform:
-        translateX(-50%)
-        translateY(0);
-
-    transition:
-        transform
-        1s
-        cubic-bezier(
-            .16,
-            .84,
-            .25,
-            1
-        );
-
-    /*
-       Di belakang bagian depan amplop.
-    */
-
-    z-index: 5;
-}
-
-
-/* =====================================================
-   LETTER LINES
-===================================================== */
-
-.letter-paper::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        repeating-linear-gradient(
-            to bottom,
-            transparent 0,
-            transparent 27px,
-            rgba(
-                110,
-                180,
-                205,
-                .15
-            ) 28px
-        );
-}
-
-
-.letter-content {
-
-    position: relative;
-
-    z-index: 2;
-
-    text-align: center;
-}
-
-
-.letter-icon {
-
-    margin-bottom: 7px;
-
-    font-size: 28px;
-}
-
-
-.letter-content h2 {
-
-    margin-bottom: 16px;
-
-    color: #4f8ba5;
-
-    font-size: 23px;
-
-    line-height: 1.2;
-}
-
-
-.letter-content p {
-
-    margin-bottom: 11px;
-
-    color: #668fa2;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-}
-
-
-.letter-signature {
-
-    margin-top: 18px;
-
-    color: #6ca2b7;
-
-    font-size: 14px;
-
-    line-height: 1.4;
-}
-
-
-.letter-signature span {
-
-    font-size: 10px;
-}
-
-
-/* =====================================================
-   ENVELOPE FRONT
-===================================================== */
-
-.envelope-front {
-
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-
-    height: 100%;
-
-    border-radius: 12px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #b6dfed,
-            #a3d5e6
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            50% 57%,
-            100% 0,
-            100% 100%,
-            0 100%
-        );
-
-    z-index: 15;
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   ENVELOPE FLAP
-===================================================== */
-
-.envelope-flap {
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 120px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #d1edf7,
-            #b8e1ef
-        );
-
-    clip-path:
-        polygon(
-            0 0,
-            100% 0,
-            50% 100%
-        );
-
-    transform-origin:
-        top center;
-
-    transform:
-        rotateX(0deg);
-
-    transition:
-        transform .8s
-        cubic-bezier(
-            .2,
-            .8,
-            .2,
-            1
-        );
-
-    z-index: 25;
-
-    pointer-events: none;
-}
-
-
-/* =====================================================
-   SEAL
-===================================================== */
-
-.envelope-seal {
-
-    position: absolute;
-
-    left: 50%;
-
-    top: 103px;
-
-    width: 48px;
-
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 50%;
-
-    background: white;
-
-    box-shadow:
-        0 7px 20px
-        rgba(70,130,160,.2);
-
-    transform:
-        translateX(-50%);
-
-    z-index: 40;
-
-    font-size: 19px;
-
-    pointer-events: none;
-
-    transition:
-        opacity .4s ease,
-        transform .4s ease;
-}
-
-
-/* =====================================================
-   OPEN ENVELOPE
-===================================================== */
-
-.envelope.open {
-
-    transform:
-        translateY(-5px);
-}
-
-
-/*
-   Surat naik keluar
-*/
-
-.envelope.open .letter-paper {
-
-    transform:
-        translateX(-50%)
-        translateY(-235px);
-
-    z-index: 50;
-}
-
-
-/*
-   Flap membuka
-*/
-
-.envelope.open .envelope-flap {
-
-    transform:
-        rotateX(180deg);
-
-    z-index: 10;
-}
-
-
-/*
-   Front tetap di bawah surat
-*/
-
-.envelope.open .envelope-front {
-
-    z-index: 20;
-}
-
-
-/*
-   Seal menghilang
-*/
-
-.envelope.open .envelope-seal {
-
-    opacity: 0;
-
-    transform:
-        translateX(-50%)
-        scale(.5);
-}
-
-
-/* =====================================================
-   LETTER HINT
-===================================================== */
-
-.letter-hint {
-
-    margin-top: 35px;
-
-    color: #70a3b8;
-
-    font-size: 12px;
-
-    letter-spacing: 1px;
-
-    transition:
-        opacity .3s ease;
-}
-
-
-/* =====================================================
-   GIFT SECTION
-===================================================== */
-
-.gift-section {
-
-    width:
-        min(
-            90%,
-            600px
-        );
-
-    margin:
-        0 auto 150px;
-
-    padding:
-        55px 30px;
-
-    text-align: center;
-
-    border-radius: 30px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .7
-        );
-
-    box-shadow:
-        0 20px 50px
-        rgba(70,130,160,.12);
+        0 25px 70px
+        rgba(55, 130, 170, 0.14);
 
     backdrop-filter:
         blur(10px);
 }
 
+.card-top-decoration {
+    font-size: 35px;
 
-.gift-icon {
+    margin-bottom: 10px;
+}
 
-    font-size: 55px;
+.card-small-title {
+    font-size: 11px;
 
-    margin-bottom: 15px;
+    letter-spacing: 3px;
+
+    color: #83adc4;
+
+    font-weight: bold;
+}
+
+.birthday-card h2 {
+    margin-top: 10px;
+
+    font-size: 30px;
+
+    color: #4b819e;
+}
+
+.birthday-card > p:not(.card-small-title) {
+    margin-top: 20px;
+
+    line-height: 1.8;
+
+    color: #6694ad;
+}
+
+
+/* =========================================
+   CAKE
+========================================= */
+
+.cake {
+    position: relative;
+
+    width: 190px;
+
+    height: 175px;
+
+    margin:
+        30px auto
+        20px;
+}
+
+.cake-plate {
+    position: absolute;
+
+    bottom: 10px;
+    left: 5px;
+
+    width: 180px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #9bcfe8;
+}
+
+.cake-body {
+    position: absolute;
+
+    bottom: 28px;
+    left: 25px;
+
+    width: 140px;
+    height: 65px;
+
+    border-radius:
+        15px
+        15px
+        25px
+        25px;
+
+    background:
+        linear-gradient(
+            #f5fbff,
+            #b9e3f6
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(60, 130, 170, 0.15);
+}
+
+.cake-body span {
+    display: inline-block;
+
+    margin:
+        25px 7px;
+
+    color: #55a5d2;
+
+    font-size: 20px;
+}
+
+.cake-top {
+    position: absolute;
+
+    left: 20px;
+    bottom: 83px;
+
+    width: 150px;
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: #e8f8ff;
+}
+
+.candle {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 87px;
+    bottom: 103px;
+
+    width: 15px;
+    height: 42px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7ebde0,
+            #d8f4ff
+        );
+}
+
+.flame {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 77px;
+    bottom: 140px;
+
+    font-size: 24px;
 
     animation:
-        giftBounce 2s
-        ease-in-out infinite;
+        flame 0.8s ease-in-out infinite alternate;
 }
 
+@keyframes flame {
 
-@keyframes giftBounce {
-
-    0%,
-    100% {
+    from {
         transform:
-            translateY(0)
-            rotate(0);
+            scale(0.9)
+            rotate(-4deg);
     }
 
-    50% {
+    to {
         transform:
-            translateY(-8px)
-            rotate(3deg);
+            scale(1.1)
+            rotate(4deg);
     }
 }
 
 
-.gift-section h2 {
+/* =========================================
+   LETTER SECTION
+========================================= */
 
-    margin-bottom: 12px;
-
-    color: #568da4;
-
-    font-size: 28px;
-}
-
-
-.gift-section p {
-
-    margin-bottom: 25px;
-
-    color: #709bab;
-}
-
-
-/* =====================================================
-   FINAL MESSAGE
-===================================================== */
-
-.final-message {
-
-    min-height: 70vh;
+.letter-section {
+    min-height: 850px;
 
     display: flex;
 
     flex-direction: column;
 
+    align-items: center;
+
     justify-content: center;
 
-    align-items: center;
+    padding:
+        100px
+        20px;
+
+    position: relative;
+}
+
+.letter-intro {
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    color: #6498b5;
+}
+
+.letter-intro span {
+    display: block;
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+.letter-intro p {
+    font-size: 17px;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   ENVELOPE
+========================================= */
+
+.envelope-wrapper {
+    position: relative;
+
+    width: 340px;
+    height: 230px;
+
+    perspective: 1000px;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+.envelope {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transform-style: preserve-3d;
+
+    filter:
+        drop-shadow(
+            0 20px 35px
+            rgba(65, 130, 170, 0.2)
+        );
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* Envelope body */
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            145deg,
+            #c7ebf8,
+            #a8dced
+        );
+
+    border-radius:
+        8px;
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================================
+   LETTER PAPER
+========================================= */
+
+.letter-paper {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 18px;
+
+    width: calc(100% - 36px);
+
+    height: 210px;
+
+    bottom: 12px;
+
+    background:
+        #ffffff;
+
+    border-radius:
+        8px;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transform:
+        translateY(0)
+        scale(0.96);
+
+    transition:
+        transform 0.9s cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        ),
+        opacity 0.35s ease;
+
+    box-shadow:
+        0 8px 25px
+        rgba(60, 120, 160, 0.15);
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   LETTER CONTENT
+========================================= */
+
+.letter-content {
+    height: 100%;
+
+    padding:
+        28px
+        24px;
 
     text-align: center;
 
-    padding: 50px 20px;
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        #9ed1e8
+        transparent;
 }
 
+.letter-icon {
+    font-size: 28px;
 
-.final-sparkle {
-
-    margin-bottom: 20px;
-
-    font-size: 40px;
-
-    animation:
-        twinkle 2s
-        ease-in-out infinite;
+    margin-bottom: 8px;
 }
 
+.letter-content h2 {
+    margin-bottom: 18px;
 
-.final-message h2 {
+    color: #4a809e;
 
-    max-width: 700px;
-
-    color: #508aa4;
-
-    font-size:
-        clamp(
-            28px,
-            5vw,
-            45px
-        );
-
-    line-height: 1.2;
+    font-size: 24px;
 }
 
+.letter-content p {
+    margin-bottom: 15px;
 
-.final-message p {
+    color: #648da5;
 
-    margin-top: 20px;
+    line-height: 1.65;
 
-    color: #6b9bad;
+    font-size: 14px;
+}
 
-    font-size: 16px;
+.letter-signature {
+    margin-top: 22px;
+
+    color: #5793b2;
+
+    font-size: 14px;
+
+    font-weight: bold;
 
     line-height: 1.7;
 }
 
+.letter-signature span {
+    font-size: 12px;
 
-.final-hearts {
-
-    margin-top: 25px;
-
-    color: #5a9fbd;
-
-    font-size: 24px;
-
-    letter-spacing: 8px;
+    color: #82aec5;
 }
 
 
-/* =====================================================
-   POPUP
-===================================================== */
+/* =========================================
+   ENVELOPE FRONT
+========================================= */
 
-.popup {
+.envelope-front {
+    position: absolute;
 
-    position: fixed;
+    z-index: 4;
 
-    inset: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 62%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #bce4f3,
+            #a5d8ea
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 55%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    border-radius:
+        0 0 8px 8px;
+}
+
+
+/* =========================================
+   ENVELOPE FLAP
+========================================= */
+
+.envelope-flap {
+    position: absolute;
+
+    z-index: 6;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d5f1fa,
+            #b6e2f1
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 56%
+        );
+
+    transform-origin: top center;
+
+    transition:
+        transform 0.85s
+        cubic-bezier(
+            0.2,
+            0.8,
+            0.2,
+            1
+        );
+
+    backface-visibility: hidden;
+}
+
+
+/* =========================================
+   SEAL
+========================================= */
+
+.envelope-seal {
+    position: absolute;
+
+    z-index: 10;
+
+    left: 50%;
+    top: 56%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 48px;
+    height: 48px;
 
     display: flex;
 
     align-items: center;
+    justify-content: center;
 
+    border-radius: 50%;
+
+    background:
+        white;
+
+    box-shadow:
+        0 8px 20px
+        rgba(70, 130, 170, 0.18);
+
+    font-size: 21px;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.5s ease;
+}
+
+
+/* =========================================
+   OPEN STATE
+========================================= */
+
+.envelope-wrapper.open .envelope-flap {
+    transform:
+        rotateX(180deg);
+}
+
+.envelope-wrapper.open .envelope-seal {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.7);
+}
+
+.envelope-wrapper.open .letter-paper {
+    opacity: 1;
+
+    transform:
+        translateY(-205px)
+        scale(1);
+
+    pointer-events: auto;
+
+    z-index: 8;
+}
+
+
+/* Make front go behind letter when open */
+
+.envelope-wrapper.open .envelope-front {
+    z-index: 5;
+}
+
+
+/* =========================================
+   LETTER HINT
+========================================= */
+
+.letter-hint {
+    margin-top: 35px;
+
+    font-size: 13px;
+
+    color: #70a4be;
+
+    transition:
+        opacity 0.3s ease;
+}
+
+.envelope-wrapper.open + .letter-hint {
+    opacity: 0;
+}
+
+
+/* =========================================
+   CLOSE LETTER
+========================================= */
+
+.close-letter {
+    margin-top: 20px;
+
+    padding:
+        10px
+        18px;
+
+    border-radius: 999px;
+
+    background: #e6f6fc;
+
+    color: #548eac;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.close-letter:hover {
+    transform: translateY(-2px);
+
+    background: #d6eff9;
+}
+
+
+/* =========================================
+   GIFT
+========================================= */
+
+.gift-section {
+    min-height: 500px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding:
+        80px
+        20px;
+}
+
+.gift-sparkle {
+    font-size: 30px;
+
+    animation:
+        twinkle 2s infinite;
+}
+
+.gift-section h2 {
+    margin-top: 10px;
+
+    font-size: 34px;
+
+    color: #4e819e;
+}
+
+.gift-section p {
+    margin-top: 15px;
+
+    color: #6c9ab2;
+}
+
+
+/* =========================================
+   FINAL MESSAGE
+========================================= */
+
+.final-message {
+    width: min(760px, calc(100% - 40px));
+
+    margin:
+        50px auto
+        100px;
+
+    padding:
+        70px
+        35px;
+
+    text-align: center;
+
+    border-radius: 40px;
+
+    background:
+        rgba(255, 255, 255, 0.7);
+
+    box-shadow:
+        0 25px 60px
+        rgba(65, 130, 170, 0.13);
+
+    backdrop-filter: blur(10px);
+}
+
+.final-icon {
+    font-size: 35px;
+}
+
+.final-message h2 {
+    margin-top: 15px;
+
+    color: #4b809e;
+
+    font-size:
+        clamp(25px, 4vw, 38px);
+
+    line-height: 1.3;
+}
+
+.final-message p {
+    margin-top: 18px;
+
+    color: #6b9ab1;
+
+    line-height: 1.8;
+}
+
+.final-hearts {
+    margin-top: 25px;
+
+    color: #5da7d0;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================
+   POPUP
+========================================= */
+
+.popup {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
     justify-content: center;
 
     padding: 20px;
 
     background:
-        rgba(
-            60,
-            130,
-            160,
-            .25
-        );
+        rgba(56, 116, 150, 0.25);
 
     backdrop-filter:
         blur(8px);
@@ -1352,296 +1215,254 @@ button {
     visibility: hidden;
 
     transition:
-        opacity .35s ease,
-        visibility .35s ease;
-
-    z-index: 1000;
+        opacity 0.3s ease,
+        visibility 0.3s ease;
 }
 
-
 .popup.show {
-
     opacity: 1;
 
     visibility: visible;
 }
 
-
 .popup-box {
-
     position: relative;
 
-    width:
-        min(
-            90%,
-            430px
-        );
+    width: min(430px, 100%);
 
     padding:
-        45px 30px;
+        45px
+        30px
+        35px;
 
     text-align: center;
 
-    border-radius: 28px;
+    border-radius: 30px;
 
-    background: white;
+    background:
+        rgba(255, 255, 255, 0.96);
 
     box-shadow:
-        0 25px 70px
-        rgba(40,110,140,.25);
+        0 30px 80px
+        rgba(40, 100, 140, 0.25);
 
     transform:
-        scale(.85)
-        translateY(20px);
+        translateY(25px)
+        scale(0.95);
 
     transition:
-        transform .4s ease;
+        transform 0.35s ease;
 }
-
 
 .popup.show .popup-box {
-
     transform:
-        scale(1)
-        translateY(0);
+        translateY(0)
+        scale(1);
 }
 
-
-.close-button {
-
+.close-popup {
     position: absolute;
 
-    top: 12px;
-
-    right: 16px;
+    top: 15px;
+    right: 18px;
 
     width: 35px;
-
     height: 35px;
 
     border-radius: 50%;
 
-    color: #6999aa;
+    background: #edf8fc;
 
-    background: #edf9fd;
+    color: #6195ae;
 
-    font-size: 25px;
-
-    line-height: 30px;
+    font-size: 22px;
 }
 
-
-.popup-gift {
-
-    font-size: 60px;
-
-    margin-bottom: 15px;
-}
-
-
-.popup-box h2 {
-
-    color: #508ba4;
-
-    margin-bottom: 15px;
-}
-
-
-.popup-box p {
+.popup-icon {
+    font-size: 45px;
 
     margin-bottom: 10px;
-
-    color: #6b96a6;
-
-    line-height: 1.6;
 }
 
+.popup-label {
+    font-size: 10px;
 
-.okay-button {
+    letter-spacing: 3px;
 
-    margin-top: 18px;
+    color: #86aec1;
+
+    font-weight: bold;
+}
+
+.popup-box h2 {
+    margin-top: 8px;
+
+    color: #4c809d;
+
+    font-size: 32px;
+}
+
+.popup-box p:not(.popup-label) {
+    margin-top: 15px;
+
+    color: #6894aa;
+
+    line-height: 1.7;
+}
+
+.okay-btn {
+    margin-top: 25px;
 
     padding:
-        12px 25px;
+        12px
+        24px;
 
-    border-radius: 30px;
+    border-radius: 999px;
 
     color: white;
 
     background:
         linear-gradient(
             135deg,
-            #72bad6,
-            #478fae
+            #68b6e2,
+            #438dd0
         );
 
     font-weight: bold;
 }
 
 
-/* =====================================================
+/* =========================================
    CONFETTI
-===================================================== */
+========================================= */
 
-#confetti-container {
-
+#confettiContainer {
     position: fixed;
 
     inset: 0;
 
+    z-index: 200;
+
     pointer-events: none;
 
     overflow: hidden;
-
-    z-index: 2000;
 }
-
 
 .confetti {
-
     position: absolute;
 
-    top: -30px;
+    top: -20px;
+
+    width: 8px;
+    height: 14px;
+
+    border-radius: 2px;
 
     animation:
-        fall 4s
-        linear forwards;
+        confettiFall linear forwards;
 }
 
+@keyframes confettiFall {
 
-@keyframes fall {
-
-    0% {
-        transform:
-            translateY(-30px)
-            rotate(0);
-        opacity: 1;
-    }
-
-    100% {
+    to {
         transform:
             translateY(110vh)
             rotate(720deg);
+
         opacity: 0;
     }
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* =========================================
+   RESPONSIVE
+========================================= */
 
 @media (max-width: 600px) {
 
     .hero {
-        min-height: 90vh;
-
         padding:
-            60px 18px;
+            50px
+            18px;
     }
-
 
     .hero h1 {
-        font-size: 42px;
+        font-size: 39px;
     }
 
-
-    .hero-subtitle {
+    .hero-text {
         font-size: 15px;
     }
 
-
     .birthday-card {
-
         padding:
-            35px 22px;
-
-        margin-bottom: 100px;
+            35px
+            22px;
     }
 
+    .birthday-card h2 {
+        font-size: 26px;
+    }
 
     .letter-section {
+        min-height: 760px;
 
         padding:
-            60px 10px 120px;
-
-        /*
-           Ruang tambahan agar
-           surat yang keluar tidak terpotong.
-        */
-
-        min-height: 800px;
+            80px
+            15px;
     }
-
 
     .envelope-wrapper {
-
-        width: 330px;
-
-        height: 250px;
-    }
-
-
-    .envelope {
-
         width: 300px;
-
-        height: 200px;
+        height: 205px;
     }
 
-
-    .letter-paper {
-
-        width: 278px;
-
-        height: 390px;
-
-        padding:
-            22px 18px;
-    }
-
-
-    .envelope.open .letter-paper {
-
+    .envelope-wrapper.open .letter-paper {
         transform:
-            translateX(-50%)
-            translateY(-225px);
+            translateY(-180px)
+            scale(0.95);
     }
 
-
-    .envelope-flap {
-
-        height: 108px;
+    .letter-content {
+        padding:
+            23px
+            18px;
     }
-
-
-    .envelope-seal {
-
-        top: 94px;
-    }
-
 
     .letter-content h2 {
-
-        font-size: 20px;
+        font-size: 21px;
     }
-
 
     .letter-content p {
-
-        font-size: 11px;
+        font-size: 13px;
     }
 
+    .gift-section h2 {
+        font-size: 28px;
+    }
+
+    .final-message {
+        padding:
+            50px
+            22px;
+    }
 
     .cloud {
-
-        font-size: 40px;
+        opacity: 0.35;
     }
+}
 
 
-    .gift-section {
+/* =========================================
+   ACCESSIBILITY
+========================================= */
 
-        margin-bottom: 100px;
-    }
+.envelope-wrapper:focus-visible {
+    outline:
+        3px solid
+        rgba(68, 145, 195, 0.4);
 
+    outline-offset: 8px;
+
+    border-radius: 10px;
 }
