@@ -1,227 +1,275 @@
-/* =========================================================
-   HAPPY BIRTHDAY - SCRIPT
-========================================================= */
+/* =====================================================
+   HAPPY BIRTHDAY
+   MAIN JAVASCRIPT
+===================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
 
 
-/* =========================================================
-   OPEN SURPRISE
-========================================================= */
+    /* =================================================
+       ELEMENTS
+    ================================================= */
 
-function openSurprise() {
+    const surpriseButton =
+        document.getElementById("surpriseButton");
 
-    const card = document.getElementById("birthdayCard");
-
-    if (!card) return;
-
-    card.classList.add("show");
-
-    setTimeout(() => {
-
-        card.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
-
-    }, 150);
-}
-
-
-/* =========================================================
-   ENVELOPE
-========================================================= */
-
-function toggleEnvelope() {
+    const birthdayCard =
+        document.getElementById("birthdayCard");
 
     const envelope =
         document.getElementById("envelope");
 
-    const hint =
+    const letterHint =
         document.getElementById("letterHint");
 
-    if (!envelope) {
-        console.log("Envelope tidak ditemukan.");
-        return;
-    }
-
-    envelope.classList.toggle("open");
-
-    const opened =
-        envelope.classList.contains("open");
-
-    console.log(
-        opened
-            ? "Envelope dibuka"
-            : "Envelope ditutup"
-    );
-
-    if (hint) {
-
-        if (opened) {
-
-            hint.textContent =
-                "♡ Your little letter is open ♡";
-
-        } else {
-
-            hint.textContent =
-                "✦ Tap the envelope to open ✦";
-
-        }
-
-    }
-}
-
-
-/* =========================================================
-   GIFT
-========================================================= */
-
-function openGift() {
+    const giftButton =
+        document.getElementById("giftButton");
 
     const popup =
         document.getElementById("popup");
 
-    if (!popup) return;
+    const closeButton =
+        document.getElementById("closeButton");
 
-    popup.classList.add("show");
-
-    createConfetti();
-}
-
-
-/* =========================================================
-   CLOSE POPUP
-========================================================= */
-
-function closePopup() {
-
-    const popup =
-        document.getElementById("popup");
-
-    if (!popup) return;
-
-    popup.classList.remove("show");
-}
+    const okayButton =
+        document.getElementById("okayButton");
 
 
-/* =========================================================
-   CONFETTI
-========================================================= */
 
-function createConfetti() {
+    /* =================================================
+       OPEN SURPRISE
+    ================================================= */
 
-    const container =
-        document.getElementById(
-            "confetti-container"
+    if (surpriseButton) {
+
+        surpriseButton.addEventListener(
+            "click",
+            function () {
+
+                birthdayCard.classList.add("show");
+
+                setTimeout(function () {
+
+                    birthdayCard.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+
+                }, 150);
+
+            }
         );
 
-    if (!container) return;
-
-    const symbols = [
-        "💙",
-        "🩵",
-        "♡",
-        "✦",
-        "✨",
-        "🫧",
-        "★"
-    ];
-
-    for (let i = 0; i < 35; i++) {
-
-        const piece =
-            document.createElement("span");
-
-        piece.className = "confetti";
-
-        piece.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
-
-        piece.style.left =
-            Math.random() * 100 + "%";
-
-        piece.style.fontSize =
-            12 + Math.random() * 15 + "px";
-
-        piece.style.animationDelay =
-            Math.random() * 1.5 + "s";
-
-        container.appendChild(piece);
-
-        setTimeout(() => {
-            piece.remove();
-        }, 4500);
     }
-}
 
 
-/* =========================================================
-   PAGE READY
-========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    () => {
+    /* =================================================
+       ENVELOPE
+    ================================================= */
 
-        console.log(
-            "Birthday website loaded 💙"
-        );
+    if (envelope) {
+
+        envelope.addEventListener(
+            "click",
+            function () {
+
+                const isOpen =
+                    envelope.classList.toggle("open");
 
 
-        /* -----------------------------------------------
-           ENVELOPE CLICK
-        ------------------------------------------------ */
+                if (isOpen) {
 
-        const envelope =
-            document.getElementById("envelope");
+                    letterHint.textContent =
+                        "♡ Your little letter is open ♡";
 
-        if (envelope) {
+                } else {
 
-            envelope.addEventListener(
-                "click",
-                (event) => {
-
-                    event.preventDefault();
-                    event.stopPropagation();
-
-                    toggleEnvelope();
+                    letterHint.textContent =
+                        "✦ Tap the envelope to open ✦";
 
                 }
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       GIFT
+    ================================================= */
+
+    if (giftButton) {
+
+        giftButton.addEventListener(
+            "click",
+            function () {
+
+                popup.classList.add("show");
+
+                createConfetti();
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CLOSE POPUP
+    ================================================= */
+
+    if (closeButton) {
+
+        closeButton.addEventListener(
+            "click",
+            function () {
+
+                popup.classList.remove("show");
+
+            }
+        );
+
+    }
+
+
+    if (okayButton) {
+
+        okayButton.addEventListener(
+            "click",
+            function () {
+
+                popup.classList.remove("show");
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CLICK OUTSIDE POPUP
+    ================================================= */
+
+    if (popup) {
+
+        popup.addEventListener(
+            "click",
+            function (event) {
+
+                if (
+                    event.target === popup
+                ) {
+
+                    popup.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+
+    /* =================================================
+       CONFETTI
+    ================================================= */
+
+    function createConfetti() {
+
+        const container =
+            document.getElementById(
+                "confetti-container"
+            );
+
+        if (!container) return;
+
+
+        const symbols = [
+            "💙",
+            "🩵",
+            "♡",
+            "✦",
+            "✨",
+            "🫧",
+            "★",
+            "🎉"
+        ];
+
+
+        for (
+            let i = 0;
+            i < 45;
+            i++
+        ) {
+
+            const confetti =
+                document.createElement(
+                    "span"
+                );
+
+
+            confetti.className =
+                "confetti";
+
+
+            confetti.textContent =
+                symbols[
+                    Math.floor(
+                        Math.random() *
+                        symbols.length
+                    )
+                ];
+
+
+            confetti.style.left =
+                Math.random() * 100 + "%";
+
+
+            confetti.style.fontSize =
+                (
+                    12 +
+                    Math.random() * 18
+                ) + "px";
+
+
+            confetti.style.animationDelay =
+                (
+                    Math.random() * 1.2
+                ) + "s";
+
+
+            confetti.style.animationDuration =
+                (
+                    3 +
+                    Math.random() * 2
+                ) + "s";
+
+
+            container.appendChild(
+                confetti
+            );
+
+
+            setTimeout(
+                function () {
+
+                    confetti.remove();
+
+                },
+                5500
             );
 
         }
 
-
-        /* -----------------------------------------------
-           POPUP
-        ------------------------------------------------ */
-
-        const popup =
-            document.getElementById("popup");
-
-        if (popup) {
-
-            popup.addEventListener(
-                "click",
-                (event) => {
-
-                    if (
-                        event.target === popup
-                    ) {
-
-                        closePopup();
-
-                    }
-
-                }
-            );
-
-        }
-
     }
-);
+
+
+});
