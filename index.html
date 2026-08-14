@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,9 +11,9 @@
 
 <body>
 
-    <!-- =========================================
+    <!-- =========================
          BACKGROUND
-    ========================================== -->
+    ========================== -->
 
     <div class="background">
 
@@ -24,6 +23,7 @@
             <span>✦</span>
             <span>★</span>
             <span>✧</span>
+            <span>✦</span>
         </div>
 
         <div class="floating-hearts">
@@ -32,34 +32,33 @@
             <span>♥</span>
             <span>♡</span>
             <span>♡</span>
+            <span>♥</span>
         </div>
 
-        <div class="cloud cloud-one">☁️</div>
-        <div class="cloud cloud-two">☁️</div>
-        <div class="cloud cloud-three">☁️</div>
+        <div class="cloud cloud-1">☁️</div>
+        <div class="cloud cloud-2">☁️</div>
+        <div class="cloud cloud-3">☁️</div>
+        <div class="cloud cloud-4">☁️</div>
 
     </div>
 
 
-    <!-- =========================================
+    <!-- =========================
          MAIN
-    ========================================== -->
+    ========================== -->
 
     <main>
 
-
-        <!-- =====================================
-             HERO
-        ====================================== -->
+        <!-- HERO -->
 
         <section class="hero">
 
-            <div class="hero-small">
-                a little birthday surprise for you 🩵
+            <div class="tiny-label">
+                ✦ A LITTLE BIRTHDAY SURPRISE ✦
             </div>
 
-            <div class="birthday-label">
-                ✦ A SPECIAL DAY ✦
+            <div class="hero-heart">
+                💙
             </div>
 
             <h1>
@@ -67,53 +66,55 @@
                 <span>Someone Special</span>! 🎂
             </h1>
 
-            <p class="hero-subtitle">
-                Today is your day to smile,
+            <p class="hero-text">
+                Today is your special day.
                 <br>
-                make wishes, and create beautiful memories. 🩵
+                A little reminder that you are loved,
+                appreciated, and very special. 🫧
             </p>
 
             <div class="hero-decoration">
-                ♡ ✦ ♡ ✦ ♡
+                ♡　✦　♡　✦　♡
             </div>
 
-            <button
-                class="surprise-button"
-                id="surpriseButton">
-
+            <button class="surprise-btn" id="surpriseButton">
                 💌 Open Your Surprise
-
             </button>
 
         </section>
 
 
-
-        <!-- =====================================
+        <!-- =========================
              BIRTHDAY CARD
-        ====================================== -->
+        ========================== -->
 
-        <section
-            class="birthday-card"
-            id="birthdayCard">
+        <section class="birthday-card">
 
-            <div class="card-top-icon">
+            <div class="card-top-decoration">
                 🦋
             </div>
 
+            <p class="card-small-title">
+                FOR SOMEONE SPECIAL
+            </p>
+
             <h2>
-                For Someone Special 💙
+                A Little Birthday Wish 💙
             </h2>
+
+            <!-- CAKE -->
 
             <div class="cake">
 
                 <div class="flame">
-                    ✨
+                    🔥
                 </div>
 
-                <div class="candle"></div>
+                <div class="candle">
+                </div>
 
-                <div class="cake-top"></div>
+                <div class="cake-top">
+                </div>
 
                 <div class="cake-body">
                     <span>♡</span>
@@ -121,7 +122,8 @@
                     <span>♡</span>
                 </div>
 
-                <div class="cake-plate"></div>
+                <div class="cake-plate">
+                </div>
 
             </div>
 
@@ -144,12 +146,11 @@
         </section>
 
 
-
-        <!-- =====================================
+        <!-- =========================
              LETTER
-        ====================================== -->
+        ========================== -->
 
-        <section class="letter-section">
+        <section class="letter-section" id="letterSection">
 
             <div class="letter-intro">
 
@@ -166,21 +167,24 @@
 
             <div
                 class="envelope-wrapper"
-                id="envelopeWrapper">
+                id="envelopeWrapper"
+                role="button"
+                tabindex="0"
+                aria-label="Open the birthday letter"
+            >
 
-                <div
-                    class="envelope"
-                    id="envelope">
-
+                <div class="envelope" id="envelope">
 
                     <!-- BACK -->
 
-                    <div class="envelope-back"></div>
+                    <div class="envelope-back">
+                    </div>
 
 
-                    <!-- LETTER -->
+                    <!-- LETTER IS COMPLETELY HIDDEN
+                         UNTIL ENVELOPE OPENS -->
 
-                    <article class="letter-paper">
+                    <div class="letter-paper">
 
                         <div class="letter-content">
 
@@ -221,30 +225,35 @@
                             </p>
 
                             <div class="letter-signature">
-
                                 With love,
-
                                 <br>
-
                                 <span>
                                     ♡ Someone who cares ♡
                                 </span>
-
                             </div>
+
+                            <button
+                                class="close-letter"
+                                id="closeLetter"
+                            >
+                                ♡ Close Letter
+                            </button>
 
                         </div>
 
-                    </article>
+                    </div>
 
 
                     <!-- FRONT -->
 
-                    <div class="envelope-front"></div>
+                    <div class="envelope-front">
+                    </div>
 
 
                     <!-- FLAP -->
 
-                    <div class="envelope-flap"></div>
+                    <div class="envelope-flap">
+                    </div>
 
 
                     <!-- SEAL -->
@@ -260,54 +269,50 @@
 
             <p
                 class="letter-hint"
-                id="letterHint">
-
+                id="letterHint"
+            >
                 ✦ Tap the envelope to open ✦
-
             </p>
 
         </section>
 
 
-
-        <!-- =====================================
+        <!-- =========================
              GIFT
-        ====================================== -->
+        ========================== -->
 
         <section class="gift-section">
 
-            <div class="gift-icon">
-                🎁
+            <div class="gift-sparkle">
+                ✦
             </div>
 
             <h2>
-                One More Thing...
+                One More Thing... 🎁
             </h2>
 
             <p>
-                There might be a little surprise
-                waiting for you.
+                Because every birthday deserves
+                one more little surprise.
             </p>
 
             <button
-                class="gift-button"
-                id="giftButton">
-
+                class="gift-btn"
+                id="giftButton"
+            >
                 🎁 Tap the Gift
-
             </button>
 
         </section>
 
 
-
-        <!-- =====================================
+        <!-- =========================
              FINAL
-        ====================================== -->
+        ========================== -->
 
         <section class="final-message">
 
-            <div class="final-sparkle">
+            <div class="final-icon">
                 ✨
             </div>
 
@@ -332,49 +337,54 @@
     </main>
 
 
-
-    <!-- =========================================
-         POPUP
-    ========================================== -->
+    <!-- =========================
+         SURPRISE POPUP
+    ========================== -->
 
     <div
         class="popup"
-        id="popup">
+        id="popup"
+        aria-hidden="true"
+    >
 
         <div class="popup-box">
 
             <button
-                class="close-button"
-                id="closeButton">
-
+                class="close-popup"
+                id="closePopup"
+                aria-label="Close"
+            >
                 ×
-
             </button>
 
-            <div class="popup-gift">
-                🎁
+            <div class="popup-icon">
+                💙
             </div>
 
+            <p class="popup-label">
+                A LITTLE MESSAGE
+            </p>
+
             <h2>
-                Surprise! 💙
+                Surprise! 🎉
             </h2>
 
             <p>
-                Your biggest gift is simply
-                being you. 🫧
+                Your biggest gift is simply being you. 🫧
             </p>
 
             <p>
                 Semoga tahun ini menjadi salah satu
-                tahun terbaik dalam hidupmu. ✨
+                tahun terbaik dalam hidupmu.
+                Semoga ada lebih banyak alasan untuk
+                tersenyum, bermimpi, dan bahagia. ✨
             </p>
 
             <button
-                class="okay-button"
-                id="okayButton">
-
+                class="okay-btn"
+                id="okayButton"
+            >
                 Awww 🥹💙
-
             </button>
 
         </div>
@@ -382,18 +392,10 @@
     </div>
 
 
+    <!-- CONFETTI -->
 
-    <!-- =========================================
-         CONFETTI
-    ========================================== -->
+    <div id="confettiContainer"></div>
 
-    <div id="confetti-container"></div>
-
-
-
-    <!-- =========================================
-         SCRIPT
-    ========================================== -->
 
     <script src="script.js"></script>
 
