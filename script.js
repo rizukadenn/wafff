@@ -1,6 +1,5 @@
 /* =========================================================
-   HAPPY BIRTHDAY WEBSITE
-   Complete JavaScript
+   HAPPY BIRTHDAY - SCRIPT
 ========================================================= */
 
 
@@ -10,14 +9,13 @@
 
 function openSurprise() {
 
-    const card =
-        document.getElementById("birthdayCard");
+    const card = document.getElementById("birthdayCard");
 
     if (!card) return;
 
     card.classList.add("show");
 
-    setTimeout(function () {
+    setTimeout(() => {
 
         card.scrollIntoView({
             behavior: "smooth",
@@ -40,16 +38,25 @@ function toggleEnvelope() {
     const hint =
         document.getElementById("letterHint");
 
-    if (!envelope) return;
+    if (!envelope) {
+        console.log("Envelope tidak ditemukan.");
+        return;
+    }
 
     envelope.classList.toggle("open");
 
-    const isOpen =
+    const opened =
         envelope.classList.contains("open");
+
+    console.log(
+        opened
+            ? "Envelope dibuka"
+            : "Envelope ditutup"
+    );
 
     if (hint) {
 
-        if (isOpen) {
+        if (opened) {
 
             hint.textContent =
                 "♡ Your little letter is open ♡";
@@ -139,17 +146,15 @@ function createConfetti() {
             Math.random() * 100 + "%";
 
         piece.style.fontSize =
-            (12 + Math.random() * 15) + "px";
+            12 + Math.random() * 15 + "px";
 
         piece.style.animationDelay =
-            (Math.random() * 1.5) + "s";
+            Math.random() * 1.5 + "s";
 
         container.appendChild(piece);
 
-        setTimeout(function () {
-
+        setTimeout(() => {
             piece.remove();
-
         }, 4500);
     }
 }
@@ -161,7 +166,16 @@ function createConfetti() {
 
 document.addEventListener(
     "DOMContentLoaded",
-    function () {
+    () => {
+
+        console.log(
+            "Birthday website loaded 💙"
+        );
+
+
+        /* -----------------------------------------------
+           ENVELOPE CLICK
+        ------------------------------------------------ */
 
         const envelope =
             document.getElementById("envelope");
@@ -170,15 +184,22 @@ document.addEventListener(
 
             envelope.addEventListener(
                 "click",
-                toggleEnvelope
+                (event) => {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    toggleEnvelope();
+
+                }
             );
 
         }
 
 
-        /* -------------------------------------------------
-           Close popup when clicking outside the box
-        ------------------------------------------------- */
+        /* -----------------------------------------------
+           POPUP
+        ------------------------------------------------ */
 
         const popup =
             document.getElementById("popup");
@@ -187,7 +208,7 @@ document.addEventListener(
 
             popup.addEventListener(
                 "click",
-                function (event) {
+                (event) => {
 
                     if (
                         event.target === popup
