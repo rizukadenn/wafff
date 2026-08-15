@@ -1,411 +1,993 @@
-/* =========================================================
-   HAPPY BIRTHDAY WEBSITE
-   FULL JAVASCRIPT
-========================================================= */
+/* =========================================
+   BIRTHDAY WEBSITE ANIMATION
+========================================= */
 
 
-/* =========================================================
-   PAGE READY
-========================================================= */
+/* =========================================
+   FLOATING HEARTS / STARS
+========================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+const floatingContainer =
+  document.querySelector(".floating-container");
 
-    initEnvelope();
+const floatingSymbols = [
+  "♡",
+  "♥",
+  "💙",
+  "🩵",
+  "✦",
+  "✧",
+  "✨",
+  "⋆"
+];
+
+
+function createFloatingItem() {
+
+  if (!floatingContainer) return;
+
+  const item =
+    document.createElement("div");
+
+  item.className =
+    "floating-item";
+
+  item.textContent =
+    floatingSymbols[
+      Math.floor(
+        Math.random() * floatingSymbols.length
+      )
+    ];
+
+  const size =
+    Math.random() * 18 + 12;
+
+  const left =
+    Math.random() * 100;
+
+  const duration =
+    Math.random() * 8 + 8;
+
+  const delay =
+    Math.random() * 2;
+
+  item.style.left =
+    `${left}%`;
+
+  item.style.fontSize =
+    `${size}px`;
+
+  item.style.animationDuration =
+    `${duration}s`;
+
+  item.style.animationDelay =
+    `${delay}s`;
+
+  floatingContainer.appendChild(item);
+
+
+  setTimeout(() => {
+
+    item.remove();
+
+  }, (duration + delay) * 1000);
+
+}
+
+
+/* Start floating animation */
+
+setInterval(
+  createFloatingItem,
+  650
+);
+
+
+/* Initial particles */
+
+for (let i = 0; i < 12; i++) {
+
+  setTimeout(
+    createFloatingItem,
+    i * 250
+  );
+
+}
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const sections =
+  document.querySelectorAll(
+    ".section-reveal"
+  );
+
+
+const observer =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add(
+            "visible"
+          );
+
+        }
+
+      });
+
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+
+sections.forEach(section => {
+
+  observer.observe(section);
 
 });
 
 
-/* =========================================================
-   OPEN SURPRISE
-========================================================= */
+/* =========================================
+   SURPRISE BUTTON
+========================================= */
 
-function openSurprise() {
+const surpriseBtn =
+  document.querySelector(
+    "#surpriseBtn"
+  );
 
-    const card =
-        document.getElementById("birthdayCard");
 
-    if (!card) {
-        console.warn(
-            "birthdayCard tidak ditemukan."
+if (surpriseBtn) {
+
+  surpriseBtn.addEventListener(
+    "click",
+    () => {
+
+      createBurst(
+        window.innerWidth / 2,
+        window.innerHeight / 2
+      );
+
+
+      const letterSection =
+        document.querySelector(
+          ".letter-section"
         );
 
-        return;
-    }
+      if (letterSection) {
 
-
-    /* tampilkan birthday card */
-
-    card.classList.add("show");
-
-
-    /* confetti */
-
-    createConfetti(35);
-
-
-    /* scroll menuju card */
-
-    setTimeout(function () {
-
-        card.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
+        letterSection.scrollIntoView({
+          behavior: "smooth"
         });
 
-    }, 250);
+      }
+
+    }
+  );
 
 }
 
 
-/* =========================================================
+/* =========================================
    ENVELOPE
-========================================================= */
+========================================= */
 
-function initEnvelope() {
+const envelope =
+  document.querySelector(
+    "#envelope"
+  );
 
-    const wrapper =
-        document.getElementById(
-            "envelopeWrapper"
-        );
+const letterOverlay =
+  document.querySelector(
+    "#letterOverlay"
+  );
 
-    const envelope =
-        document.getElementById(
-            "envelope"
-        );
+const closeLetter =
+  document.querySelector(
+    "#closeLetter"
+  );
 
-    const hint =
-        document.getElementById(
-            "letterHint"
-        );
-
-
-    /* kalau elemen tidak ditemukan */
-
-    if (!wrapper || !envelope) {
-
-        console.warn(
-            "Envelope tidak ditemukan."
-        );
-
-        return;
-    }
+const closeLetterBottom =
+  document.querySelector(
+    "#closeLetterBottom"
+  );
 
 
-    /* klik amplop */
+function openLetter() {
 
-    envelope.addEventListener(
-        "click",
-        function () {
+  if (!envelope) return;
 
-            const isOpen =
-                wrapper.classList.contains(
-                    "open"
-                );
+  envelope.classList.add(
+    "open"
+  );
 
 
-            /* =====================
-               OPEN
-            ===================== */
+  setTimeout(() => {
 
-            if (!isOpen) {
+    if (letterOverlay) {
 
-                wrapper.classList.add(
-                    "open"
-                );
-
-
-                if (hint) {
-
-                    hint.textContent =
-                        "♡ Your little letter is open ♡";
-
-                }
-
-
-                /* confetti kecil */
-
-                createConfetti(18);
-
-
-                /*
-                    scroll sedikit supaya
-                    surat yang keluar terlihat
-                */
-
-                setTimeout(
-                    function () {
-
-                        wrapper.scrollIntoView({
-                            behavior: "smooth",
-                            block: "center"
-                        });
-
-                    },
-                    450
-                );
-
-            }
-
-
-            /* =====================
-               CLOSE
-            ===================== */
-
-            else {
-
-                wrapper.classList.remove(
-                    "open"
-                );
-
-
-                if (hint) {
-
-                    hint.textContent =
-                        "✦ Tap the envelope to open ✦";
-
-                }
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   GIFT
-========================================================= */
-
-function openGift() {
-
-    const popup =
-        document.getElementById(
-            "popup"
-        );
-
-
-    if (!popup) {
-
-        console.warn(
-            "Popup tidak ditemukan."
-        );
-
-        return;
-    }
-
-
-    popup.classList.add(
+      letterOverlay.classList.add(
         "show"
-    );
+      );
 
-
-    createConfetti(30);
-
-}
-
-
-/* =========================================================
-   CLOSE POPUP
-========================================================= */
-
-function closePopup() {
-
-    const popup =
-        document.getElementById(
-            "popup"
-        );
-
-
-    if (!popup) {
-        return;
     }
 
+  }, 650);
 
-    popup.classList.remove(
-        "show"
-    );
+
+  createHeartBurst(
+    envelope
+  );
 
 }
 
 
-/* =========================================================
-   CLOSE POPUP WHEN CLICKING OUTSIDE
-========================================================= */
+if (envelope) {
 
-document.addEventListener(
+  envelope.addEventListener(
     "click",
-    function (event) {
-
-        const popup =
-            document.getElementById(
-                "popup"
-            );
+    openLetter
+  );
 
 
-        if (!popup) {
-            return;
-        }
-
-
-        /*
-           hanya tutup kalau yang diklik
-           adalah area gelap popup
-        */
-
-        if (
-            event.target === popup
-        ) {
-
-            closePopup();
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   ESC KEY CLOSE POPUP
-========================================================= */
-
-document.addEventListener(
+  envelope.addEventListener(
     "keydown",
-    function (event) {
+    (event) => {
 
-        if (
-            event.key === "Escape"
-        ) {
+      if (
+        event.key === "Enter" ||
+        event.key === " "
+      ) {
 
-            closePopup();
+        event.preventDefault();
+
+        openLetter();
+
+      }
+
+    }
+  );
+
+}
+
+
+function closeLetterModal() {
+
+  if (!letterOverlay) return;
+
+  letterOverlay.classList.remove(
+    "show"
+  );
+
+}
+
+
+if (closeLetter) {
+
+  closeLetter.addEventListener(
+    "click",
+    closeLetterModal
+  );
+
+}
+
+
+if (closeLetterBottom) {
+
+  closeLetterBottom.addEventListener(
+    "click",
+    closeLetterModal
+  );
+
+}
+
+
+/* Close modal by clicking outside */
+
+if (letterOverlay) {
+
+  letterOverlay.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target ===
+        letterOverlay
+      ) {
+
+        closeLetterModal();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   GIFT
+========================================= */
+
+const giftButton =
+  document.querySelector(
+    "#giftButton"
+  );
+
+const giftMessage =
+  document.querySelector(
+    "#giftMessage"
+  );
+
+
+if (giftButton) {
+
+  giftButton.addEventListener(
+    "click",
+    () => {
+
+      giftButton.classList.add(
+        "open"
+      );
+
+
+      createGiftConfetti();
+
+
+      setTimeout(() => {
+
+        if (giftMessage) {
+
+          giftMessage.classList.add(
+            "show"
+          );
 
         }
 
+      }, 500);
+
     }
-);
+  );
+
+}
 
 
-/* =========================================================
-   CONFETTI
-========================================================= */
+/* Close gift by clicking background */
 
-function createConfetti(
-    amount = 25
+if (giftMessage) {
+
+  giftMessage.addEventListener(
+    "click",
+    (event) => {
+
+      if (
+        event.target ===
+        giftMessage
+      ) {
+
+        giftMessage.classList.remove(
+          "show"
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   HEART BURST
+========================================= */
+
+function createHeartBurst(
+  element
 ) {
 
-    const container =
-        document.getElementById(
-            "confetti-container"
-        );
+  if (!element) return;
+
+  const rect =
+    element.getBoundingClientRect();
 
 
-    if (!container) {
-        return;
-    }
+  const symbols = [
+    "💙",
+    "♡",
+    "🩵",
+    "✦",
+    "✨"
+  ];
 
 
-    const symbols = [
-        "💙",
-        "🩵",
-        "♡",
-        "♥",
-        "✨",
-        "✦",
-        "✧",
-        "🎉",
-        "🫧"
-    ];
+  for (let i = 0; i < 18; i++) {
+
+    const particle =
+      document.createElement(
+        "div"
+      );
+
+    particle.textContent =
+      symbols[
+        Math.floor(
+          Math.random() *
+          symbols.length
+        )
+      ];
 
 
-    for (
-        let i = 0;
-        i < amount;
-        i++
-    ) {
+    particle.style.position =
+      "fixed";
 
-        const piece =
-            document.createElement(
-                "span"
-            );
+    particle.style.left =
+      `${rect.left + rect.width / 2}px`;
 
+    particle.style.top =
+      `${rect.top + rect.height / 2}px`;
 
-        piece.className =
-            "confetti";
+    particle.style.zIndex =
+      "300";
 
+    particle.style.pointerEvents =
+      "none";
 
-        /* random symbol */
-
-        piece.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
+    particle.style.fontSize =
+      `${Math.random() * 15 + 12}px`;
 
 
-        /* posisi */
+    const angle =
+      Math.random() *
+      Math.PI *
+      2;
 
-        piece.style.left =
-            Math.random() * 100 + "vw";
+    const distance =
+      Math.random() * 150 + 60;
 
+    const x =
+      Math.cos(angle) *
+      distance;
 
-        /* ukuran */
-
-        piece.style.fontSize =
-            (
-                12 +
-                Math.random() * 16
-            ) + "px";
-
-
-        /* delay */
-
-        piece.style.animationDelay =
-            (
-                Math.random() * 0.8
-            ) + "s";
+    const y =
+      Math.sin(angle) *
+      distance;
 
 
-        /* durasi */
+    particle.animate(
+      [
+        {
+          transform:
+            "translate(-50%, -50%) scale(0)",
+          opacity: 0
+        },
 
-        piece.style.animationDuration =
-            (
-                2.8 +
-                Math.random() * 1.8
-            ) + "s";
+        {
+          transform:
+            `translate(
+              calc(-50% + ${x / 2}px),
+              calc(-50% + ${y / 2}px)
+            ) scale(1.2)`,
+          opacity: 1
+        },
+
+        {
+          transform:
+            `translate(
+              calc(-50% + ${x}px),
+              calc(-50% + ${y}px)
+            ) scale(.5)`,
+          opacity: 0
+        }
+      ],
+      {
+        duration:
+          Math.random() * 700 + 900,
+
+        easing:
+          "cubic-bezier(.16,1,.3,1)"
+      }
+    );
 
 
-        container.appendChild(
-            piece
-        );
+    document.body.appendChild(
+      particle
+    );
 
 
-        /* hapus setelah animasi */
+    setTimeout(
+      () => particle.remove(),
+      1800
+    );
 
-        setTimeout(
-            function () {
-
-                piece.remove();
-
-            },
-            5000
-        );
-
-    }
+  }
 
 }
 
 
-/* =========================================================
-   OPTIONAL: BACK TO TOP
-========================================================= */
+/* =========================================
+   GENERAL BURST
+========================================= */
 
-function scrollToTop() {
+function createBurst(
+  x,
+  y
+) {
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+  const symbols = [
+    "♡",
+    "♥",
+    "✦",
+    "✧",
+    "✨",
+    "💙"
+  ];
+
+
+  for (let i = 0; i < 30; i++) {
+
+    const particle =
+      document.createElement(
+        "div"
+      );
+
+    particle.textContent =
+      symbols[
+        Math.floor(
+          Math.random() *
+          symbols.length
+        )
+      ];
+
+
+    particle.style.position =
+      "fixed";
+
+    particle.style.left =
+      `${x}px`;
+
+    particle.style.top =
+      `${y}px`;
+
+    particle.style.zIndex =
+      "300";
+
+    particle.style.pointerEvents =
+      "none";
+
+    particle.style.fontSize =
+      `${Math.random() * 15 + 10}px`;
+
+
+    const angle =
+      Math.random() *
+      Math.PI *
+      2;
+
+    const distance =
+      Math.random() * 200 + 50;
+
+    const dx =
+      Math.cos(angle) *
+      distance;
+
+    const dy =
+      Math.sin(angle) *
+      distance;
+
+
+    particle.animate(
+      [
+        {
+          transform:
+            "translate(-50%, -50%) scale(0)",
+          opacity: 0
+        },
+
+        {
+          transform:
+            `translate(
+              calc(-50% + ${dx}px),
+              calc(-50% + ${dy}px)
+            ) scale(1)`,
+          opacity: 1
+        },
+
+        {
+          transform:
+            `translate(
+              calc(-50% + ${dx * 1.3}px),
+              calc(-50% + ${dy * 1.3}px)
+            ) scale(.2)`,
+          opacity: 0
+        }
+      ],
+      {
+        duration:
+          Math.random() * 900 + 700,
+
+        easing:
+          "cubic-bezier(.16,1,.3,1)"
+      }
+    );
+
+
+    document.body.appendChild(
+      particle
+    );
+
+
+    setTimeout(
+      () => particle.remove(),
+      1800
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   GIFT CONFETTI
+========================================= */
+
+function createGiftConfetti() {
+
+  const symbols = [
+    "💙",
+    "🩵",
+    "♡",
+    "✦",
+    "✨",
+    "🎀",
+    "⭐"
+  ];
+
+
+  const centerX =
+    window.innerWidth / 2;
+
+  const centerY =
+    window.innerHeight / 2;
+
+
+  for (let i = 0; i < 55; i++) {
+
+    const particle =
+      document.createElement(
+        "div"
+      );
+
+    particle.textContent =
+      symbols[
+        Math.floor(
+          Math.random() *
+          symbols.length
+        )
+      ];
+
+
+    particle.style.position =
+      "fixed";
+
+    particle.style.left =
+      `${centerX}px`;
+
+    particle.style.top =
+      `${centerY}px`;
+
+    particle.style.zIndex =
+      "300";
+
+    particle.style.pointerEvents =
+      "none";
+
+    particle.style.fontSize =
+      `${Math.random() * 17 + 10}px`;
+
+
+    const angle =
+      Math.random() *
+      Math.PI *
+      2;
+
+    const distance =
+      Math.random() * 350 + 100;
+
+    const dx =
+      Math.cos(angle) *
+      distance;
+
+    const dy =
+      Math.sin(angle) *
+      distance;
+
+
+    particle.animate(
+      [
+        {
+          transform:
+            "translate(-50%, -50%) rotate(0deg) scale(.3)",
+          opacity: 0
+        },
+
+        {
+          transform:
+            `translate(
+              calc(-50% + ${dx / 2}px),
+              calc(-50% + ${dy / 2}px)
+            )
+            rotate(180deg)
+            scale(1)`,
+          opacity: 1
+        },
+
+        {
+          transform:
+            `translate(
+              calc(-50% + ${dx}px),
+              calc(-50% + ${dy + 150}px)
+            )
+            rotate(500deg)
+            scale(.5)`,
+          opacity: 0
+        }
+      ],
+      {
+        duration:
+          Math.random() * 1300 + 1200,
+
+        easing:
+          "cubic-bezier(.16,1,.3,1)"
+      }
+    );
+
+
+    document.body.appendChild(
+      particle
+    );
+
+
+    setTimeout(
+      () => particle.remove(),
+      2700
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   CURSOR GLOW
+========================================= */
+
+const cursorGlow =
+  document.querySelector(
+    ".cursor-glow"
+  );
+
+
+if (
+  cursorGlow &&
+  window.matchMedia(
+    "(pointer: fine)"
+  ).matches
+) {
+
+  let mouseX = 0;
+  let mouseY = 0;
+
+  let currentX = 0;
+  let currentY = 0;
+
+
+  document.addEventListener(
+    "mousemove",
+    (event) => {
+
+      mouseX =
+        event.clientX;
+
+      mouseY =
+        event.clientY;
+
+    }
+  );
+
+
+  function animateCursor() {
+
+    currentX +=
+      (mouseX - currentX) *
+      0.12;
+
+    currentY +=
+      (mouseY - currentY) *
+      0.12;
+
+
+    cursorGlow.style.left =
+      `${currentX}px`;
+
+    cursorGlow.style.top =
+      `${currentY}px`;
+
+
+    requestAnimationFrame(
+      animateCursor
+    );
+
+  }
+
+
+  animateCursor();
+
+}
+
+
+/* =========================================
+   CLICK SPARKLES
+========================================= */
+
+document.addEventListener(
+  "click",
+  (event) => {
+
+    if (
+      event.target.closest(
+        "button"
+      ) ||
+      event.target.closest(
+        ".envelope"
+      )
+    ) {
+      return;
+    }
+
+
+    createSmallSparkle(
+      event.clientX,
+      event.clientY
+    );
+
+  }
+);
+
+
+function createSmallSparkle(
+  x,
+  y
+) {
+
+  const sparkle =
+    document.createElement(
+      "div"
+    );
+
+  sparkle.textContent =
+    "✦";
+
+  sparkle.style.position =
+    "fixed";
+
+  sparkle.style.left =
+    `${x}px`;
+
+  sparkle.style.top =
+    `${y}px`;
+
+  sparkle.style.zIndex =
+    "250";
+
+  sparkle.style.pointerEvents =
+    "none";
+
+  sparkle.style.color =
+    "#6d9fba";
+
+  sparkle.style.fontSize =
+    "18px";
+
+
+  sparkle.animate(
+    [
+      {
+        transform:
+          "translate(-50%, -50%) scale(.3) rotate(0)",
+        opacity: 0
+      },
+
+      {
+        transform:
+          "translate(-50%, -50%) scale(1.4) rotate(90deg)",
+        opacity: 1
+      },
+
+      {
+        transform:
+          "translate(-50%, -80px) scale(.5) rotate(180deg)",
+        opacity: 0
+      }
+    ],
+    {
+      duration: 700,
+
+      easing:
+        "ease-out"
+    }
+  );
+
+
+  document.body.appendChild(
+    sparkle
+  );
+
+
+  setTimeout(
+    () => sparkle.remove(),
+    800
+  );
+
+}
+
+
+/* =========================================
+   ESC KEY
+========================================= */
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (event.key !== "Escape") {
+      return;
+    }
+
+
+    if (letterOverlay) {
+
+      letterOverlay.classList.remove(
+        "show"
+      );
+
+    }
+
+
+    if (giftMessage) {
+
+      giftMessage.classList.remove(
+        "show"
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   REDUCE MOTION SUPPORT
+========================================= */
+
+const prefersReducedMotion =
+  window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+
+if (prefersReducedMotion.matches) {
+
+  document.documentElement.style
+    .setProperty(
+      "scroll-behavior",
+      "auto"
+    );
 
 }
